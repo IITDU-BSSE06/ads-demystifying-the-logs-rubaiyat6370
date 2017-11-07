@@ -1,12 +1,10 @@
-#!/usr/bin/python
-
-import sys
-hit = 0
 oldurl = None
 maxCount = -9999
 
 for line in sys.stdin:
 	data = line.strip()
+	if data == "" or data is None:
+		continue
 	url = data
 	if oldurl and oldurl != url:
 		#print oldurl, "\t", hit
@@ -18,4 +16,5 @@ for line in sys.stdin:
 	oldurl = url
 	hit += 1
 print path
+#print maxCount
 	
